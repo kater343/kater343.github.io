@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vibe Abschluss - підготовка до MSA</title>
+<meta name="description" content="Vibe Abschluss - онлайн-підготовка до MSA (Mittlerer Schulabschluss) з німецької, математики та англійської для україно- та російськомовних підлітків у Німеччині. Індивідуально та в міні-групах.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Nunito:wght@400;600;700;800&family=Rubik:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --forest:#0e402b; --forest-2:#16553a; --green:#298b5f; --green-soft:#dcefe3;
+  --cream:#f5fada; --paper:#f3ede1; --paper-2:#faf6ee; --sand:#ebd893; --gold:#ddb049; --gold-2:#eaaf28;
+  --ink:#00170d; --ink-2:#2c3d34; --muted:#66756c; --line:#e3dac6; --white:#fffdf8;
+  --math:#8e3b3b; --en:#f07a2a; --de:#2f5fc4;
+  --hero:#0e402b; --hero-ink:#f5fada; --r:18px; --shadow:0 1px 0 rgba(14,64,43,.06), 0 10px 24px -14px rgba(14,64,43,.35);
+  --bg-grad: radial-gradient(circle at 12% 8%,rgba(221,176,73,.10),transparent 40%),radial-gradient(circle at 90% 60%,rgba(41,139,95,.08),transparent 45%);
+}
+[data-theme="dark"]{
+  --paper:#0f1a15; --paper-2:#152219; --white:#182a21; --line:#27402f; --ink:#edf3ea; --ink-2:#cbd8cd; --muted:#8fa396;
+  --green-soft:#1d3a2b; --cream:#f5fada; --hero:#0a1f15; --forest-2:#1b4a32;
+  --shadow:0 1px 0 rgba(0,0,0,.2), 0 10px 24px -14px rgba(0,0,0,.6);
+  --bg-grad: radial-gradient(circle at 12% 8%,rgba(221,176,73,.07),transparent 40%),radial-gradient(circle at 90% 60%,rgba(41,139,95,.10),transparent 45%);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Nunito,system-ui,sans-serif;background:var(--paper);background-image:var(--bg-grad);color:var(--ink);line-height:1.5;font-size:17px;transition:background .2s,color .2s}
+h1,h2,h3{font-family:Rubik,sans-serif;margin:0;line-height:1.15;letter-spacing:-.01em}
+h1{font-size:clamp(32px,5.5vw,56px);font-weight:800}
+h2{font-size:clamp(26px,3.6vw,38px);font-weight:800}
+h3{font-size:20px;font-weight:700}
+p{margin:0}
+a{color:inherit}
+button{font:inherit;color:inherit;cursor:pointer}
+input,select,textarea{font:inherit;color:inherit}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+.muted{color:var(--muted)}
+.brandfont{font-family:"Bagel Fat One",Rubik,sans-serif;font-weight:400;letter-spacing:.02em}
+.sec{padding:72px 0}
+@media (max-width:700px){.sec{padding:52px 0}}
+.eyebrow{display:inline-block;font-weight:800;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--green);margin-bottom:10px}
+.lead{font-size:19px;color:var(--ink-2);max-width:680px}
+.btn{border:0;border-radius:14px;padding:14px 24px;font-weight:800;background:var(--green);color:#f5fada;display:inline-flex;align-items:center;gap:8px;text-decoration:none;transition:transform .08s,filter .15s;font-size:16px}
+.btn:hover{filter:brightness(1.08)}
+.btn:active{transform:translateY(1px)}
+.btn.gold{background:var(--gold);color:#0e402b}
+.btn.ghost{background:transparent;color:inherit;border:2px solid currentColor;opacity:.9}
+.btn.sm{padding:9px 14px;font-size:14px;border-radius:11px}
+.btn[disabled]{opacity:.5;cursor:not-allowed}
+.card{background:var(--white);border:1px solid var(--line);border-radius:var(--r);padding:24px;box-shadow:var(--shadow)}
+
+/* header */
+.top{position:sticky;top:0;z-index:30;background:var(--forest);color:#f5fada;box-shadow:0 2px 12px rgba(0,0,0,.15)}
+.top-in{max-width:1120px;margin:0 auto;padding:10px 20px;display:flex;align-items:center;gap:14px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:#f5fada}
+.logo .wm{font-family:"Bagel Fat One",sans-serif;font-size:20px;line-height:.9;letter-spacing:.02em}
+.logo .wm span{display:block;color:#5fc493}
+nav.menu{display:flex;gap:4px;margin-left:12px}
+nav.menu a{text-decoration:none;color:rgba(245,250,218,.8);padding:8px 13px;border-radius:999px;font-weight:700;font-size:15px}
+nav.menu a:hover{background:rgba(255,255,255,.08);color:#f5fada}
+nav.menu a.quiz{background:var(--gold);color:#0e402b}
+.spacer{flex:1}
+.ctrls{display:flex;align-items:center;gap:8px}
+.ico{width:38px;height:38px;border-radius:50%;border:0;background:rgba(255,255,255,.1);color:#f5fada;display:grid;place-items:center;font-size:17px;text-decoration:none}
+.ico:hover{background:rgba(255,255,255,.18)}
+.langsw{display:inline-flex;gap:2px;background:rgba(245,250,218,.12);border-radius:999px;padding:3px}
+.langsw button{border:0;background:none;color:rgba(245,250,218,.75);font-weight:800;font-size:12px;padding:5px 8px;border-radius:999px}
+.langsw button.on{background:#f5fada;color:#0e402b}
+.burger{display:none}
+@media (max-width:860px){
+  nav.menu{display:none}
+  nav.menu.open{display:flex;position:absolute;top:100%;left:0;right:0;background:var(--forest);flex-direction:column;padding:10px 16px 16px;margin:0;border-top:1px solid rgba(255,255,255,.1)}
+  .burger{display:grid}
+  .langsw button{padding:5px 6px;font-size:11px}
+}
+
+/* hero */
+.hero{background:var(--hero);color:#f5fada;position:relative;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:30px;align-items:center;padding-top:70px;padding-bottom:80px}
+.hero h1 span{color:var(--gold)}
+.hero .lead{color:rgba(245,250,218,.85)}
+.hero .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.hero .facts{display:flex;gap:26px;flex-wrap:wrap;margin-top:34px}
+.hero .facts b{display:block;font-family:Rubik;font-size:26px;color:var(--gold)}
+.hero .facts span{font-size:13px;color:rgba(245,250,218,.75)}
+.hero .art{display:flex;justify-content:center}
+.hero svg.blob{position:absolute;opacity:.08;pointer-events:none}
+@media (max-width:820px){.hero .wrap{grid-template-columns:1fr;padding-top:44px;padding-bottom:54px}.hero .art{order:-1}.hero .art .masc-wrap{width:150px!important;height:165px!important}}
+.masc-wrap{position:relative;display:inline-block;flex:none}
+
+/* subjects */
+.subjects{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}
+@media (max-width:760px){.subjects{grid-template-columns:1fr}}
+.subj{border-radius:var(--r);padding:22px;color:#f5fada;position:relative;overflow:hidden;min-height:230px;display:flex;flex-direction:column;box-shadow:var(--shadow)}
+.subj.s-math{background:var(--math)} .subj.s-en{background:var(--en);color:#1a1208} .subj.s-de{background:var(--de)}
+.subj .name{font-family:"Bagel Fat One",sans-serif;font-size:26px;letter-spacing:.03em}
+.subj .sub{font-weight:800;opacity:.85;margin-bottom:10px}
+.subj ul{margin:0;padding-left:18px;font-size:15px;line-height:1.55}
+.subj svg{position:absolute;right:-20px;bottom:-30px;width:150px;opacity:.18}
+
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:28px}
+@media (max-width:860px){.steps{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:480px){.steps{grid-template-columns:1fr}}
+.step{background:var(--white);border:1px solid var(--line);border-radius:var(--r);padding:20px;box-shadow:var(--shadow)}
+.step .n{width:36px;height:36px;border-radius:12px;background:var(--gold);color:#0e402b;display:grid;place-items:center;font-family:Rubik;font-weight:800;margin-bottom:12px}
+
+/* pricing */
+.seg{display:inline-flex;background:var(--white);border:1px solid var(--line);border-radius:999px;padding:4px;margin-top:22px}
+.seg button{border:0;background:none;border-radius:999px;padding:10px 20px;font-weight:800;color:var(--muted)}
+.seg button.on{background:var(--forest);color:#f5fada}
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:22px}
+@media (max-width:820px){.plans{grid-template-columns:1fr}}
+.plan{background:var(--white);border:2px solid var(--line);border-radius:var(--r);padding:24px;box-shadow:var(--shadow);position:relative;display:flex;flex-direction:column}
+.plan.hot{border-color:var(--gold)}
+.plan .tag{position:absolute;top:-13px;left:20px;background:var(--gold);color:#0e402b;font-weight:800;font-size:12px;padding:3px 10px;border-radius:999px}
+.plan .nm{font-weight:800;color:var(--muted);font-size:14px;text-transform:uppercase;letter-spacing:.08em}
+.plan .price{font-family:Rubik;font-weight:800;font-size:40px;line-height:1;margin:10px 0 2px}
+.plan .price small{font-size:15px;font-weight:700;color:var(--muted);font-family:Nunito}
+.plan .per{color:var(--muted);font-size:14px;margin-bottom:14px}
+.plan ul{margin:0 0 18px;padding-left:20px;line-height:1.7;font-size:15px}
+.plan .btn{margin-top:auto;justify-content:center}
+.dots{display:flex;gap:6px;margin:4px 0 12px}
+.dots i{width:14px;height:14px;border-radius:50%;background:var(--line)}
+.dots i.m{background:var(--math)} .dots i.e{background:var(--en)} .dots i.d{background:var(--de)}
+.pricenote{margin-top:16px;color:var(--muted);font-size:14px}
+
+/* faq */
+.faq{max-width:820px;margin-top:22px}
+details{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:0 20px;margin-bottom:10px;box-shadow:var(--shadow)}
+summary{cursor:pointer;list-style:none;font-weight:800;padding:18px 0;display:flex;justify-content:space-between;gap:10px;align-items:center}
+summary::-webkit-details-marker{display:none}
+summary::after{content:'+';font-family:Rubik;font-size:22px;color:var(--green);flex:none}
+details[open] summary::after{content:'−'}
+details .a{padding:0 0 18px;color:var(--ink-2)}
+
+/* form */
+.formwrap{display:grid;grid-template-columns:1fr 1.1fr;gap:28px;align-items:start}
+@media (max-width:860px){.formwrap{grid-template-columns:1fr}}
+.field{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
+.field label{font-weight:800;font-size:14px;color:var(--ink-2)}
+.input{border:2px solid var(--line);background:var(--paper-2);border-radius:12px;padding:11px 13px;width:100%;outline:none}
+.input:focus{border-color:var(--green)}
+textarea.input{min-height:80px;resize:vertical}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{border:2px solid var(--line);background:var(--white);border-radius:999px;padding:9px 16px;font-weight:800;font-size:15px;display:inline-flex;align-items:center;gap:8px}
+.chip .dot{width:10px;height:10px;border-radius:50%}
+.chip.on{color:#fff;border-color:transparent}
+.chip.on.c-math{background:var(--math)} .chip.on.c-en{background:var(--en);color:#1a1208} .chip.on.c-de{background:var(--de)}
+.chip.on.c-plain{background:var(--forest);color:#f5fada}
+.chip[disabled]{opacity:.45;cursor:not-allowed}
+.planpick{display:flex;flex-direction:column;gap:8px}
+.planpick label{display:flex;gap:12px;align-items:center;border:2px solid var(--line);border-radius:12px;padding:10px 12px;cursor:pointer;background:var(--white)}
+.planpick label.on{border-color:var(--green);background:var(--green-soft)}
+.planpick input{width:20px;height:20px;accent-color:var(--green)}
+.planpick b{font-family:Rubik}
+.check{display:flex;gap:10px;align-items:flex-start;font-size:14px;color:var(--ink-2);margin-bottom:10px;cursor:pointer}
+.check input{width:20px;height:20px;accent-color:var(--green);flex:none;margin-top:1px}
+.hint{font-size:13px;color:var(--muted)}
+.err{background:#fdeee9;color:#7d2416;border:1px solid #f4d2ca;border-radius:12px;padding:10px 14px;font-weight:700;margin-bottom:12px}
+[data-theme="dark"] .err{background:#3a1c15;color:#ffb4a4;border-color:#5a2a20}
+.ok{background:var(--green-soft);border:1px solid var(--green);border-radius:var(--r);padding:26px;text-align:center}
+.summary{background:var(--paper-2);border:1px dashed var(--line);border-radius:12px;padding:12px 14px;font-size:14px;margin-bottom:14px}
+.contactbox{background:var(--forest);color:#f5fada;border-radius:var(--r);padding:24px}
+.contactbox a.btn{margin-top:14px}
+.soc{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+.soc a{display:inline-flex;align-items:center;gap:8px;text-decoration:none;background:rgba(255,255,255,.1);border-radius:999px;padding:8px 14px;font-weight:800;font-size:14px}
+.soc a:hover{background:rgba(255,255,255,.18)}
+.soc svg{width:18px;height:18px;fill:currentColor}
+
+/* footer */
+footer{background:var(--forest);color:rgba(245,250,218,.85);padding:44px 0 28px;margin-top:40px}
+.foot{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:28px}
+@media (max-width:760px){.foot{grid-template-columns:1fr}}
+footer h4{margin:0 0 10px;color:#f5fada;font-family:Rubik}
+footer a{color:inherit;text-decoration:none}
+footer a:hover{text-decoration:underline}
+footer ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
+.copy{border-top:1px solid rgba(255,255,255,.12);margin-top:28px;padding-top:18px;font-size:13px;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+
+/* legal modal */
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:60;display:none;align-items:flex-start;justify-content:center;padding:30px 14px;overflow:auto}
+.modal.open{display:flex}
+.modal .box{background:var(--white);color:var(--ink);border-radius:var(--r);max-width:820px;width:100%;padding:28px;position:relative;margin:auto}
+.modal .box h2{margin-bottom:12px}
+.modal .box h3{margin:20px 0 6px;font-size:17px}
+.modal .box p,.modal .box li{font-size:15px;color:var(--ink-2)}
+.modal .close{position:absolute;top:14px;right:14px;border:0;background:var(--paper);border-radius:50%;width:36px;height:36px;font-weight:800}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:#00170d;color:#f5fada;padding:12px 18px;border-radius:12px;font-weight:700;z-index:99;max-width:92vw;display:none}
+.toast.show{display:block}
+</style>
+</head>
+<body>
+<header class="top"><div class="top-in">
+  <a class="logo" href="#top"><span class="wm">VIBE<span>ABSCHLUSS</span></span></a>
+  <nav class="menu" id="menu">
+    <a href="#courses" data-t="nav_courses"></a><a href="#pricing" data-t="nav_pricing"></a><a href="#faq">FAQ</a><a href="#apply" data-t="nav_apply"></a>
+    <a class="quiz" href="QUIZ_URL" id="quizlink">🧩 Vibe Quiz</a>
+  </nav>
+  <span class="spacer"></span>
+  <div class="ctrls">
+    <div class="langsw" id="langsw"></div>
+    <button class="ico" id="themebtn" title="Dark / Light">🌙</button>
+    <a class="ico" id="cabbtn" href="QUIZ_URL#cabinet" title="" aria-label="Cabinet">👤</a>
+    <button class="ico burger" id="burger" aria-label="Menu">☰</button>
+  </div>
+</div></header>
+
+<main id="top">
+<section class="hero">
+  <svg class="blob" viewBox="0 0 44 44" style="width:520px;right:-140px;top:-120px"><path id="blobpath" fill="#f5fada"/></svg>
+  <div class="wrap">
+    <div>
+      <span class="eyebrow" style="color:var(--gold)" data-t="hero_eyebrow"></span>
+      <h1 data-t="hero_h1"></h1>
+      <p class="lead" style="margin-top:16px" data-t="hero_lead"></p>
+      <div class="cta"><a class="btn gold" href="#apply" data-t="cta_apply"></a><a class="btn ghost" href="#courses" data-t="cta_program"></a></div>
+      <div class="facts">
+        <div><b>3</b><span data-t="fact_subjects"></span></div>
+        <div><b>4–8</b><span data-t="fact_group"></span></div>
+        <div><b>60 <small style="font-size:14px">min</small></b><span data-t="fact_trial"></span></div>
+        <div><b>UA · RU</b><span data-t="fact_lang"></span></div>
+      </div>
+    </div>
+    <div class="art" id="heroart"></div>
+  </div>
+</section>
+
+<section class="sec" id="courses"><div class="wrap">
+  <span class="eyebrow" data-t="courses_eyebrow"></span>
+  <h2 data-t="courses_h2"></h2>
+  <p class="lead" style="margin-top:12px" data-t="courses_lead"></p>
+  <div class="subjects">
+    <div class="subj s-math"><div class="name">MATHEMATIK</div><div class="sub" data-t="math_sub"></div><ul data-l="math_list"></ul><svg viewBox="0 0 44 44"><use href="#blobdef"/></svg></div>
+    <div class="subj s-en"><div class="name">ENGLISH</div><div class="sub" data-t="en_sub"></div><ul data-l="en_list"></ul><svg viewBox="0 0 44 44"><use href="#blobdef"/></svg></div>
+    <div class="subj s-de"><div class="name">DEUTSCH</div><div class="sub" data-t="de_sub"></div><ul data-l="de_list"></ul><svg viewBox="0 0 44 44"><use href="#blobdef"/></svg></div>
+  </div>
+  <div class="steps" id="steps"></div>
+  <div style="margin-top:28px"><a class="btn" href="#pricing" data-t="cta_pricing"></a></div>
+</div></section>
+
+<section class="sec" id="pricing" style="background:var(--paper-2)"><div class="wrap">
+  <span class="eyebrow" data-t="pricing_eyebrow"></span>
+  <h2 data-t="pricing_h2"></h2>
+  <p class="lead" style="margin-top:12px" data-t="pricing_lead"></p>
+  <div class="seg"><button data-fmt="individual" class="on" data-t="fmt_ind"></button><button data-fmt="group" data-t="fmt_grp"></button></div>
+  <div class="plans" id="plans"></div>
+  <p class="pricenote" data-t="pricing_note"></p>
+</div></section>
+
+<section class="sec" id="faq"><div class="wrap">
+  <span class="eyebrow">FAQ</span>
+  <h2 data-t="faq_h2"></h2>
+  <div class="faq" id="faqlist"></div>
+</div></section>
+
+<section class="sec" id="apply" style="background:var(--paper-2)"><div class="wrap">
+  <span class="eyebrow" data-t="apply_eyebrow"></span>
+  <h2 data-t="apply_h2"></h2>
+  <p class="lead" style="margin-top:12px" data-t="apply_lead"></p>
+  <div class="formwrap" style="margin-top:28px">
+    <div>
+      <div class="contactbox">
+        <h3 data-t="contact_h3"></h3>
+        <p style="margin-top:8px;opacity:.9" data-t="contact_p"></p>
+        <a class="btn gold" href="https://t.me/k1chyk" target="_blank" rel="noopener">✈️ Telegram: @k1chyk</a>
+        <div class="soc">
+          <a href="https://t.me/vibe_abschluss" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M9.04 15.47 8.7 20.1c.49 0 .7-.21.96-.46l2.3-2.2 4.77 3.49c.87.48 1.5.23 1.72-.8l3.12-14.6c.31-1.28-.47-1.8-1.3-1.47L1.7 11.1c-1.25.49-1.23 1.19-.21 1.5l4.68 1.46L17.1 7.2c.51-.34.98-.15.6.19"/></svg>Telegram</a>
+          <a href="https://www.instagram.com/vibe_abschluss" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 8.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4zM17.3 5.5a1.2 1.2 0 1 0 0 2.4 1.2 1.2 0 0 0 0-2.4zM21.9 7.9c-.1-1.7-.5-3.2-1.7-4.4S17.5 1.9 15.8 1.8C14 1.7 10 1.7 8.2 1.8 6.5 1.9 5 2.3 3.8 3.5S2.2 6.2 2.1 7.9c-.1 1.8-.1 5.8 0 7.6.1 1.7.5 3.2 1.7 4.4s2.7 1.6 4.4 1.7c1.8.1 5.8.1 7.6 0 1.7-.1 3.2-.5 4.4-1.7s1.6-2.7 1.7-4.4c.1-1.8.1-5.8 0-7.6zM19.8 17.1a3.3 3.3 0 0 1-1.9 1.9c-1.3.5-4.3.4-5.9.4s-4.6.1-5.9-.4a3.3 3.3 0 0 1-1.9-1.9c-.5-1.3-.4-4.3-.4-5.9s-.1-4.6.4-5.9A3.3 3.3 0 0 1 6.1 3.4c1.3-.5 4.3-.4 5.9-.4s4.6-.1 5.9.4a3.3 3.3 0 0 1 1.9 1.9c.5 1.3.4 4.3.4 5.9s.1 4.6-.4 5.9z"/></svg>Instagram</a>
+          <a href="https://www.tiktok.com/@vibe_abschluss" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M16.6 5.8A4.3 4.3 0 0 1 15.5 3h-3.1v12.4a2.6 2.6 0 1 1-2.6-2.6c.3 0 .5 0 .8.1V9.7a5.7 5.7 0 1 0 4.9 5.7V9.1a7.4 7.4 0 0 0 4.3 1.4V7.4a4.3 4.3 0 0 1-3.2-1.6z"/></svg>TikTok</a>
+          <a href="https://www.facebook.com/share/1G8R1yKvTo/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M13.5 22v-8.2h2.8l.4-3.2h-3.2V8.5c0-.9.3-1.6 1.6-1.6h1.7V4.1c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.4H7.3v3.2h2.8V22z"/></svg>Facebook</a>
+        </div>
+      </div>
+    </div>
+    <form class="card" id="form" novalidate>
+      <div id="formerr"></div>
+      <div class="field"><label for="f-name" data-t="f_name"></label><input class="input" id="f-name" name="name" maxlength="80" autocomplete="name"></div>
+      <div class="field"><label for="f-email" data-t="f_email"></label><input class="input" id="f-email" name="email" type="email" maxlength="120" autocomplete="email"></div>
+      <div class="field"><label for="f-contact" data-t="f_contact"></label><input class="input" id="f-contact" name="contact" maxlength="80" placeholder="@telegram / +49 …"></div>
+      <div class="field"><label data-t="f_exam"></label><div class="chips"><button type="button" class="chip c-plain on" disabled>MSA (Berlin)</button></div></div>
+      <div class="field"><label data-t="f_format"></label><div class="chips" id="f-format"><button type="button" class="chip c-plain on" data-v="individual" data-t="fmt_ind"></button><button type="button" class="chip c-plain" data-v="group" data-t="fmt_grp"></button></div></div>
+      <div class="field"><label data-t="f_plan"></label><div class="planpick" id="f-plan"></div></div>
+      <div class="field"><label><span data-t="f_subjects"></span> <span class="hint" id="subjhint"></span></label>
+        <div class="chips" id="f-subj">
+          <button type="button" class="chip c-math" data-v="math"><span class="dot" style="background:var(--math)"></span>Mathematik</button>
+          <button type="button" class="chip c-en" data-v="en"><span class="dot" style="background:var(--en)"></span>English</button>
+          <button type="button" class="chip c-de" data-v="de"><span class="dot" style="background:var(--de)"></span>Deutsch</button>
+        </div></div>
+      <div class="field"><label for="f-msg" data-t="f_msg"></label><textarea class="input" id="f-msg" name="message" maxlength="1000" rows="3"></textarea></div>
+      <div class="summary" id="summary"></div>
+      <label class="check"><input type="checkbox" id="f-consent"><span data-t="f_consent"></span></label>
+      <label class="check"><input type="checkbox" id="f-guardian"><span data-t="f_guardian"></span></label>
+      <button class="btn" type="submit" id="submitbtn" style="width:100%;justify-content:center;margin-top:8px" data-t="f_submit"></button>
+    </form>
+  </div>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+  <div class="foot">
+    <div><div class="logo" style="margin-bottom:10px"><span class="wm">VIBE<span>ABSCHLUSS</span></span></div>
+      <p data-t="foot_about"></p></div>
+    <div><h4 data-t="foot_nav"></h4><ul><li><a href="#courses" data-t="nav_courses"></a></li><li><a href="#pricing" data-t="nav_pricing"></a></li><li><a href="#faq">FAQ</a></li><li><a href="QUIZ_URL" class="ql">Vibe Quiz</a></li></ul></div>
+    <div><h4 data-t="foot_contact"></h4><ul><li><a href="mailto:kateryna.berlin23@gmail.com">kateryna.berlin23@gmail.com</a></li><li><a href="https://t.me/k1chyk" target="_blank" rel="noopener">Telegram: @k1chyk</a></li><li><a href="https://t.me/vibe_abschluss" target="_blank" rel="noopener">t.me/vibe_abschluss</a></li></ul></div>
+  </div>
+  <div class="copy"><span>© <span id="year"></span> Vibe Abschluss. <span data-t="rights"></span></span><span><a href="#impressum" data-legal="impressum">Impressum</a> · <a href="#datenschutz" data-legal="datenschutz">Datenschutz</a></span></div>
+</div></footer>
+
+<div class="modal" id="modal"><div class="box"><button class="close" data-a="closeModal">✕</button><div id="modalbody"></div></div></div>
+<div class="toast" id="toast"></div>
+<svg width="0" height="0" style="position:absolute"><defs><path id="blobdef" fill="#fff"/></defs></svg>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.49.4/dist/umd/supabase.min.js"></script>
+<script>
+const QUIZ_URL = 'https://kater343.github.io/vibe-quize/';
+const SB_URL = 'https://kxrszdwavzaktwwystbp.supabase.co', SB_KEY = 'sb_publishable_OMZxSBZKyxyH5lNY_LPs0w_UYa-DQ05';
+const BLOB = "M2.60177 18.4481C3.88183 19.9874 3.88442 24.0713 2.61155 25.6166C1.01124 27.5593 0.0527138 30.0447 0.0527138 32.7468C0.0527138 38.987 5.10751 44 11.2796 44C13.9957 44 16.4817 43.0448 18.4233 41.4491C19.9722 40.1762 24.0809 40.176 25.6298 41.4489C27.5714 43.0447 30.0575 44 32.7742 44C38.9463 44 44 38.987 44 32.7468C44 30.0246 43.0116 27.5224 41.3843 25.5734C40.1057 24.0421 40.1057 20.0103 41.3824 18.4774C43.0109 16.5221 44 14.0057 44 11.2532C44 5.06688 38.9463 0 32.7742 0C30.0809 0 27.6239 0.934257 25.6925 2.49796C24.1202 3.77091 19.8546 3.7566 18.2823 2.48375C16.3612 0.928597 13.911 0 11.2258 0C5.05365 0 0 5.06688 0 11.2532C0 13.9919 0.979272 16.497 2.60177 18.4481Z";
+const MASCOT_SRC = 'data:image/png;base64,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';
+const PRICES = {individual:[39.75,34.80,29.92], group:[24.75,23.63,21.58]};
+const SUBJ = {math:'Mathematik', en:'English', de:'Deutsch'};
+
+/* ---------- i18n ---------- */
+const T = {
+uk:{
+ nav_courses:'Курси', nav_pricing:'Ціни', nav_apply:'Записатися', cab:'Особистий кабінет',
+ hero_eyebrow:'Підготовка до MSA онлайн', hero_h1:'Іспит - це просто, <span>якщо готуватися з Vibe Abschluss</span>',
+ hero_lead:'Німецька, математика та англійська для підлітків, які складають MSA у Берліні. Пояснюємо складне просто - з німецькою термінологією, українською або російською мовою.',
+ cta_apply:'Записатися на курс', cta_program:'Переглянути програму', cta_pricing:'Дивитися тарифи',
+ fact_subjects:'предмети MSA', fact_group:'учнів у групі', fact_trial:'пробне заняття безкоштовно', fact_lang:'пояснюємо зрозуміло',
+ courses_eyebrow:'Програма', courses_h2:'Три предмети. Три викладачі, які знають MSA зсередини.',
+ courses_lead:'Кожен предмет веде окремий викладач, що спеціалізується саме на форматі MSA Berlin: знає типові завдання, критерії оцінювання і те, на чому найчастіше губляться бали.',
+ math_sub:'Математика', math_list:['Prozent- und Zinsrechnung, Gleichungen','Geometrie, Satz des Pythagoras, Körper','Funktionen, Statistik, Wahrscheinlichkeit','Розбір реальних MSA-завдань минулих років'],
+ en_sub:'Англійська', en_list:['Hörverstehen і Leseverstehen у форматі іспиту','Граматика: часи, умовні речення, пасив','Writing: e-mail, article, report','Словник для типових тем MSA'],
+ de_sub:'Німецька', de_list:['Leseverstehen і Textanalyse','Граматика: Nebensätze, Kasus, Konjunktiv','Schreiben: Erörterung, Inhaltsangabe','Підготовка до усної частини'],
+ steps:[['Пробне заняття','60 хвилин безкоштовно: визначаємо рівень і складаємо план.'],['Обираєш формат','Індивідуально або в міні-групі 4-8 учнів. Онлайн у Google Meet.'],['Навчаєшся','Уроки, домашка і квізи у Vibe Quiz з поясненням кожної відповіді.'],['Складаєш MSA','Бачиш прогрес по темах і йдеш на іспит упевнено.']],
+ pricing_eyebrow:'Тарифи', pricing_h2:'Прозорі ціни - за одне заняття 60 хвилин', pricing_lead:'Що більше предметів обираєш, то дешевше кожне заняття. Оплата раз на два тижні.',
+ fmt_ind:'Індивідуально', fmt_grp:'У групі', plan_names:['Тариф 1','Тариф 2','Тариф 3'], plan_sub:['1 предмет із 3','2 предмети з 3','усі 3 предмети'], per:'€ за заняття · 60 хв',
+ plan_feats:{individual:['Заняття 1 на 1 з викладачем','Темп і план під учня','Домашка з перевіркою','Доступ до Vibe Quiz'], group:['Міні-група 4-8 учнів','Фіксований розклад','Домашка з перевіркою','Доступ до Vibe Quiz']},
+ hot:'Найвигідніше', choose:'Обрати', pricing_note:'Будь-які предмети на вибір. Перше пробне заняття - безкоштовно. Ціни вказані за одне заняття тривалістю 60 хвилин.',
+ faq_h2:'Часті запитання',
+ faq:[['Де проходять заняття?','Онлайн у Google Meet. Потрібен комп\'ютер або планшет із камерою і стабільний інтернет. Посилання на урок завжди є в особистому кабінеті.'],
+  ['Як записатися без дзвінків?','Заповни форму нижче або просто напиши нашому адміністратору в Telegram: @k1chyk. Відповідаємо протягом дня.'],
+  ['Чи можна спробувати безкоштовно?','Так. Перше пробне заняття - 60 хвилин безкоштовно. На ньому ми визначаємо рівень учня, складаємо план підготовки, а учень знайомиться з викладачем і форматом.'],
+  ['Що буде, якщо пропустити урок?','Якщо учень пропускає урок без попередження або попереджає менше ніж за годину, урок вважається проведеним і не переноситься. Якщо попередити заздалегідь (найкраще за день), заняття переноситься на інший день за домовленістю з викладачем - оплата не згорає.'],
+  ['Якою мовою ведуться заняття?','Пояснюємо українською або російською, але всі терміни - німецькою, як на іспиті. Так учень розуміє матеріал і водночас звикає до мови завдань.'],
+  ['Що таке Vibe Quiz?','Наша платформа для тренування: викладач призначає квізи, а учень одразу бачить, де помилився і чому. Прогрес по кожній темі видно і учню, і викладачу.']],
+ apply_eyebrow:'Готові почати?', apply_h2:'Залиш заявку - і ми напишемо тобі', apply_lead:'Заповни коротку форму або напиши нам у Telegram. Заявку надсилають батьки або опікуни учня.',
+ contact_h3:'Швидше - у Telegram', contact_p:'Напиши адміністратору, і ми підберемо час пробного заняття.',
+ f_name:'Ім\'я та прізвище (батьків або опікуна)', f_email:'E-mail', f_contact:'Telegram або телефон (необов\'язково)', f_exam:'Іспит', f_format:'Формат', f_plan:'Тариф', f_subjects:'Предмети', f_msg:'Коментар (клас, рівень, побажання)',
+ f_consent:'Погоджуюсь на обробку моїх даних для відповіді на заявку (<a href="#datenschutz" data-legal="datenschutz">Datenschutz</a>).', f_guardian:'Підтверджую, що я - батько/мати або опікун учня (або мені виповнилось 18 років).',
+ f_submit:'Надіслати заявку', pick_n:n=>`обери ${n}`, picked:'✓ обрано',
+ err_name:'Вкажи ім\'я та прізвище.', err_email:'Перевір e-mail.', err_subj:n=>`Обери рівно ${n} ${n===1?'предмет':'предмети'} - стільки входить у тариф.`, err_consent:'Потрібно погодитися з обробкою даних і підтвердити, що ти опікун.', err_rate:'Забагато заявок з цього e-mail. Напиши нам у Telegram.', err_net:'Не вдалося надіслати. Перевір інтернет або напиши у Telegram.',
+ ok_h:'Заявку отримано! 🎉', ok_p:'Ми напишемо на вказаний e-mail або в Telegram протягом дня і домовимось про пробне заняття.',
+ sum:(f,p,s)=>`${f} · ${p} · ${s.length? s.map(k=>SUBJ[k]).join(', ') : '-'}`,
+ foot_about:'Підготовка до MSA: німецька, математика, англійська. Індивідуально та в міні-групах. Онлайн для всієї Німеччини.', foot_nav:'Навігація', foot_contact:'Контакти', rights:'Усі права захищено.',
+},
+ru:{
+ nav_courses:'Курсы', nav_pricing:'Цены', nav_apply:'Записаться', cab:'Личный кабинет',
+ hero_eyebrow:'Подготовка к MSA онлайн', hero_h1:'Экзамен - это просто, <span>если готовиться с Vibe Abschluss</span>',
+ hero_lead:'Немецкий, математика и английский для подростков, которые сдают MSA в Берлине. Объясняем сложное просто - с немецкой терминологией, на украинском или русском.',
+ cta_apply:'Записаться на курс', cta_program:'Посмотреть программу', cta_pricing:'Смотреть тарифы',
+ fact_subjects:'предмета MSA', fact_group:'учеников в группе', fact_trial:'пробное занятие бесплатно', fact_lang:'объясняем понятно',
+ courses_eyebrow:'Программа', courses_h2:'Три предмета. Три преподавателя, которые знают MSA изнутри.',
+ courses_lead:'Каждый предмет ведёт отдельный преподаватель, который специализируется именно на формате MSA Berlin: знает типовые задания, критерии оценки и то, где чаще всего теряют баллы.',
+ math_sub:'Математика', math_list:['Prozent- und Zinsrechnung, Gleichungen','Geometrie, Satz des Pythagoras, Körper','Funktionen, Statistik, Wahrscheinlichkeit','Разбор реальных MSA-заданий прошлых лет'],
+ en_sub:'Английский', en_list:['Hörverstehen и Leseverstehen в формате экзамена','Грамматика: времена, условные, пассив','Writing: e-mail, article, report','Словарь по типовым темам MSA'],
+ de_sub:'Немецкий', de_list:['Leseverstehen и Textanalyse','Грамматика: Nebensätze, Kasus, Konjunktiv','Schreiben: Erörterung, Inhaltsangabe','Подготовка к устной части'],
+ steps:[['Пробное занятие','60 минут бесплатно: определяем уровень и составляем план.'],['Выбираешь формат','Индивидуально или в мини-группе 4-8 учеников. Онлайн в Google Meet.'],['Учишься','Уроки, домашка и квизы в Vibe Quiz с объяснением каждого ответа.'],['Сдаёшь MSA','Видишь прогресс по темам и идёшь на экзамен уверенно.']],
+ pricing_eyebrow:'Тарифы', pricing_h2:'Прозрачные цены - за одно занятие 60 минут', pricing_lead:'Чем больше предметов выбираешь, тем дешевле каждое занятие. Оплата раз в две недели.',
+ fmt_ind:'Индивидуально', fmt_grp:'В группе', plan_names:['Тариф 1','Тариф 2','Тариф 3'], plan_sub:['1 предмет из 3','2 предмета из 3','все 3 предмета'], per:'€ за занятие · 60 мин',
+ plan_feats:{individual:['Занятия 1 на 1 с преподавателем','Темп и план под ученика','Домашка с проверкой','Доступ к Vibe Quiz'], group:['Мини-группа 4-8 учеников','Фиксированное расписание','Домашка с проверкой','Доступ к Vibe Quiz']},
+ hot:'Выгоднее всего', choose:'Выбрать', pricing_note:'Любые предметы на выбор. Первое пробное занятие - бесплатно. Цены указаны за одно занятие длительностью 60 минут.',
+ faq_h2:'Частые вопросы',
+ faq:[['Где проходят занятия?','Онлайн в Google Meet. Нужен компьютер или планшет с камерой и стабильный интернет. Ссылка на урок всегда есть в личном кабинете.'],
+  ['Как записаться без звонков?','Заполни форму ниже или просто напиши нашему администратору в Telegram: @k1chyk. Отвечаем в течение дня.'],
+  ['Можно попробовать бесплатно?','Да. Первое пробное занятие - 60 минут бесплатно. На нём мы определяем уровень ученика, составляем план подготовки, а ученик знакомится с преподавателем и форматом.'],
+  ['Что будет, если пропустить урок?','Если ученик пропускает урок без предупреждения или предупреждает меньше чем за час, урок считается проведённым и не переносится. Если предупредить заранее (лучше за день), занятие переносится на другой день по договорённости с преподавателем - оплата не сгорает.'],
+  ['На каком языке ведутся занятия?','Объясняем на украинском или русском, но все термины - на немецком, как на экзамене. Так ученик понимает материал и привыкает к языку заданий.'],
+  ['Что такое Vibe Quiz?','Наша платформа для тренировки: преподаватель назначает квизы, а ученик сразу видит, где ошибся и почему. Прогресс по каждой теме виден и ученику, и преподавателю.']],
+ apply_eyebrow:'Готовы начать?', apply_h2:'Оставь заявку - и мы напишем тебе', apply_lead:'Заполни короткую форму или напиши нам в Telegram. Заявку отправляют родители или опекуны ученика.',
+ contact_h3:'Быстрее - в Telegram', contact_p:'Напиши администратору, и мы подберём время пробного занятия.',
+ f_name:'Имя и фамилия (родителя или опекуна)', f_email:'E-mail', f_contact:'Telegram или телефон (необязательно)', f_exam:'Экзамен', f_format:'Формат', f_plan:'Тариф', f_subjects:'Предметы', f_msg:'Комментарий (класс, уровень, пожелания)',
+ f_consent:'Согласен(на) на обработку моих данных для ответа на заявку (<a href="#datenschutz" data-legal="datenschutz">Datenschutz</a>).', f_guardian:'Подтверждаю, что я - родитель или опекун ученика (или мне исполнилось 18 лет).',
+ f_submit:'Отправить заявку', pick_n:n=>`выбери ${n}`, picked:'✓ выбрано',
+ err_name:'Укажи имя и фамилию.', err_email:'Проверь e-mail.', err_subj:n=>`Выбери ровно ${n} ${n===1?'предмет':'предмета'} - столько входит в тариф.`, err_consent:'Нужно согласиться с обработкой данных и подтвердить, что ты опекун.', err_rate:'Слишком много заявок с этого e-mail. Напиши нам в Telegram.', err_net:'Не удалось отправить. Проверь интернет или напиши в Telegram.',
+ ok_h:'Заявка получена! 🎉', ok_p:'Мы напишем на указанный e-mail или в Telegram в течение дня и договоримся о пробном занятии.',
+ sum:(f,p,s)=>`${f} · ${p} · ${s.length? s.map(k=>SUBJ[k]).join(', ') : '-'}`,
+ foot_about:'Подготовка к MSA: немецкий, математика, английский. Индивидуально и в мини-группах. Онлайн для всей Германии.', foot_nav:'Навигация', foot_contact:'Контакты', rights:'Все права защищены.',
+},
+de:{
+ nav_courses:'Kurse', nav_pricing:'Preise', nav_apply:'Anmelden', cab:'Mein Bereich',
+ hero_eyebrow:'MSA-Vorbereitung online', hero_h1:'Die Prüfung ist einfach - <span>wenn du dich mit Vibe Abschluss vorbereitest</span>',
+ hero_lead:'Deutsch, Mathematik und Englisch für Jugendliche, die den MSA in Berlin machen. Wir erklären Schwieriges einfach - mit deutschen Fachbegriffen, auf Ukrainisch oder Russisch.',
+ cta_apply:'Kurs buchen', cta_program:'Programm ansehen', cta_pricing:'Preise ansehen',
+ fact_subjects:'MSA-Fächer', fact_group:'Schüler pro Gruppe', fact_trial:'Probestunde kostenlos', fact_lang:'verständlich erklärt',
+ courses_eyebrow:'Programm', courses_h2:'Drei Fächer. Drei Lehrkräfte, die den MSA in- und auswendig kennen.',
+ courses_lead:'Jedes Fach unterrichtet eine eigene Lehrkraft, die auf das Format MSA Berlin spezialisiert ist: typische Aufgaben, Bewertungskriterien und die Stellen, an denen die meisten Punkte verloren gehen.',
+ math_sub:'Mathematik', math_list:['Prozent- und Zinsrechnung, Gleichungen','Geometrie, Satz des Pythagoras, Körper','Funktionen, Statistik, Wahrscheinlichkeit','Echte MSA-Aufgaben der letzten Jahre'],
+ en_sub:'Englisch', en_list:['Hör- und Leseverstehen im Prüfungsformat','Grammatik: Zeiten, Bedingungssätze, Passiv','Writing: e-mail, article, report','Wortschatz zu typischen MSA-Themen'],
+ de_sub:'Deutsch', de_list:['Leseverstehen und Textanalyse','Grammatik: Nebensätze, Kasus, Konjunktiv','Schreiben: Erörterung, Inhaltsangabe','Vorbereitung auf die mündliche Prüfung'],
+ steps:[['Probestunde','60 Minuten kostenlos: Niveau bestimmen, Plan erstellen.'],['Format wählen','Einzeln oder in einer Kleingruppe mit 4-8 Schülern. Online in Google Meet.'],['Lernen','Unterricht, Hausaufgaben und Quizze in Vibe Quiz mit Erklärung zu jeder Antwort.'],['MSA bestehen','Fortschritt nach Themen sehen und sicher in die Prüfung gehen.']],
+ pricing_eyebrow:'Preise', pricing_h2:'Transparente Preise - pro Stunde à 60 Minuten', pricing_lead:'Je mehr Fächer du wählst, desto günstiger jede Stunde. Zahlung alle zwei Wochen.',
+ fmt_ind:'Einzelunterricht', fmt_grp:'Gruppe', plan_names:['Tarif 1','Tarif 2','Tarif 3'], plan_sub:['1 von 3 Fächern','2 von 3 Fächern','alle 3 Fächer'], per:'€ pro Stunde · 60 Min.',
+ plan_feats:{individual:['Unterricht 1:1 mit der Lehrkraft','Tempo und Plan nach Bedarf','Hausaufgaben mit Korrektur','Zugang zu Vibe Quiz'], group:['Kleingruppe 4-8 Schüler','Fester Stundenplan','Hausaufgaben mit Korrektur','Zugang zu Vibe Quiz']},
+ hot:'Am günstigsten', choose:'Wählen', pricing_note:'Fächer frei wählbar. Die erste Probestunde ist kostenlos. Preise gelten pro Stunde à 60 Minuten.',
+ faq_h2:'Häufige Fragen',
+ faq:[['Wo findet der Unterricht statt?','Online in Google Meet. Du brauchst einen Computer oder ein Tablet mit Kamera und stabiles Internet. Der Link steht immer in deinem persönlichen Bereich.'],
+  ['Wie melde ich mich ohne Anruf an?','Fülle das Formular unten aus oder schreib unserer Administratorin auf Telegram: @k1chyk. Wir antworten innerhalb eines Tages.'],
+  ['Kann ich kostenlos testen?','Ja. Die erste Probestunde dauert 60 Minuten und ist kostenlos. Wir bestimmen das Niveau, erstellen einen Plan, und der Schüler lernt Lehrkraft und Format kennen.'],
+  ['Was passiert, wenn ich eine Stunde verpasse?','Wird eine Stunde ohne Absage oder weniger als eine Stunde vorher abgesagt, gilt sie als gehalten und wird nicht nachgeholt. Bei rechtzeitiger Absage (am besten einen Tag vorher) wird die Stunde in Absprache mit der Lehrkraft verschoben - die Zahlung verfällt nicht.'],
+  ['In welcher Sprache ist der Unterricht?','Wir erklären auf Ukrainisch oder Russisch, alle Fachbegriffe aber auf Deutsch - wie in der Prüfung. So versteht der Schüler den Stoff und gewöhnt sich an die Aufgabensprache.'],
+  ['Was ist Vibe Quiz?','Unsere Übungsplattform: Die Lehrkraft weist Quizze zu, der Schüler sieht sofort, wo und warum er sich geirrt hat. Den Fortschritt pro Thema sehen Schüler und Lehrkraft.']],
+ apply_eyebrow:'Bereit?', apply_h2:'Anfrage senden - wir melden uns', apply_lead:'Fülle das kurze Formular aus oder schreib uns auf Telegram. Die Anfrage stellen Eltern oder Erziehungsberechtigte.',
+ contact_h3:'Schneller per Telegram', contact_p:'Schreib der Administratorin, und wir finden einen Termin für die Probestunde.',
+ f_name:'Vor- und Nachname (Elternteil / Erziehungsberechtigte)', f_email:'E-Mail', f_contact:'Telegram oder Telefon (optional)', f_exam:'Prüfung', f_format:'Format', f_plan:'Tarif', f_subjects:'Fächer', f_msg:'Kommentar (Klasse, Niveau, Wünsche)',
+ f_consent:'Ich willige in die Verarbeitung meiner Daten zur Beantwortung der Anfrage ein (<a href="#datenschutz" data-legal="datenschutz">Datenschutz</a>).', f_guardian:'Ich bestätige, dass ich Elternteil bzw. Erziehungsberechtigte(r) des Schülers bin (oder mindestens 18 Jahre alt).',
+ f_submit:'Anfrage senden', pick_n:n=>`wähle ${n}`, picked:'✓ gewählt',
+ err_name:'Bitte Vor- und Nachnamen angeben.', err_email:'Bitte E-Mail prüfen.', err_subj:n=>`Bitte genau ${n} ${n===1?'Fach':'Fächer'} wählen - so viele enthält der Tarif.`, err_consent:'Bitte der Datenverarbeitung zustimmen und bestätigen, dass du erziehungsberechtigt bist.', err_rate:'Zu viele Anfragen von dieser E-Mail. Schreib uns auf Telegram.', err_net:'Senden fehlgeschlagen. Prüfe dein Internet oder schreib uns auf Telegram.',
+ ok_h:'Anfrage erhalten! 🎉', ok_p:'Wir melden uns innerhalb eines Tages per E-Mail oder Telegram und vereinbaren die Probestunde.',
+ sum:(f,p,s)=>`${f} · ${p} · ${s.length? s.map(k=>SUBJ[k]).join(', ') : '-'}`,
+ foot_about:'MSA-Vorbereitung: Deutsch, Mathematik, Englisch. Einzeln und in Kleingruppen. Online, deutschlandweit.', foot_nav:'Navigation', foot_contact:'Kontakt', rights:'Alle Rechte vorbehalten.',
+},
+en:{
+ nav_courses:'Courses', nav_pricing:'Pricing', nav_apply:'Apply', cab:'My space',
+ hero_eyebrow:'Online MSA preparation', hero_h1:'The exam is easy - <span>when you prepare with Vibe Abschluss</span>',
+ hero_lead:'German, maths and English for teenagers taking the MSA in Berlin. We make hard things simple - with German terminology, explained in Ukrainian or Russian.',
+ cta_apply:'Enrol in a course', cta_program:'See the programme', cta_pricing:'See pricing',
+ fact_subjects:'MSA subjects', fact_group:'students per group', fact_trial:'free trial lesson', fact_lang:'explained clearly',
+ courses_eyebrow:'Programme', courses_h2:'Three subjects. Three teachers who know the MSA inside out.',
+ courses_lead:'Each subject is taught by a dedicated teacher specialising in the MSA Berlin format: typical tasks, grading criteria and the places where most points are lost.',
+ math_sub:'Maths', math_list:['Percentages, interest, equations','Geometry, Pythagoras, solids','Functions, statistics, probability','Real MSA tasks from past years'],
+ en_sub:'English', en_list:['Listening and reading in exam format','Grammar: tenses, conditionals, passive','Writing: e-mail, article, report','Vocabulary for typical MSA topics'],
+ de_sub:'German', de_list:['Reading comprehension and text analysis','Grammar: Nebensätze, Kasus, Konjunktiv','Writing: Erörterung, Inhaltsangabe','Preparation for the oral exam'],
+ steps:[['Trial lesson','60 minutes free: we assess the level and build a plan.'],['Choose a format','One-to-one or a mini-group of 4-8 students. Online in Google Meet.'],['Learn','Lessons, homework and quizzes in Vibe Quiz with an explanation for every answer.'],['Pass the MSA','See your progress by topic and walk into the exam confident.']],
+ pricing_eyebrow:'Pricing', pricing_h2:'Transparent prices - per 60-minute lesson', pricing_lead:'The more subjects you choose, the cheaper each lesson. Billed every two weeks.',
+ fmt_ind:'One-to-one', fmt_grp:'Group', plan_names:['Plan 1','Plan 2','Plan 3'], plan_sub:['1 of 3 subjects','2 of 3 subjects','all 3 subjects'], per:'€ per lesson · 60 min',
+ plan_feats:{individual:['1:1 lessons with the teacher','Pace and plan tailored to the student','Homework with feedback','Access to Vibe Quiz'], group:['Mini-group of 4-8 students','Fixed schedule','Homework with feedback','Access to Vibe Quiz']},
+ hot:'Best value', choose:'Choose', pricing_note:'Any subjects you like. The first trial lesson is free. Prices are per 60-minute lesson.',
+ faq_h2:'Frequently asked questions',
+ faq:[['Where do lessons take place?','Online in Google Meet. You need a computer or tablet with a camera and a stable connection. The lesson link is always in your personal space.'],
+  ['How do I sign up without a phone call?','Fill in the form below or simply message our administrator on Telegram: @k1chyk. We reply within a day.'],
+  ['Can I try for free?','Yes. The first trial lesson is 60 minutes and free. We assess the student\'s level, build a preparation plan, and the student gets to know the teacher and the format.'],
+  ['What if I miss a lesson?','If a lesson is missed without notice, or cancelled less than an hour before, it counts as held and is not rescheduled. With advance notice (ideally a day before) the lesson is moved to another day by arrangement with the teacher - the payment is not lost.'],
+  ['What language are lessons in?','We explain in Ukrainian or Russian, but all terminology is in German, as in the exam. The student understands the material and gets used to the language of the tasks.'],
+  ['What is Vibe Quiz?','Our practice platform: the teacher assigns quizzes and the student immediately sees where and why they went wrong. Progress per topic is visible to both student and teacher.']],
+ apply_eyebrow:'Ready to start?', apply_h2:'Send a request - we\'ll get back to you', apply_lead:'Fill in the short form or message us on Telegram. Requests are submitted by a parent or guardian.',
+ contact_h3:'Faster on Telegram', contact_p:'Message the administrator and we\'ll find a time for the trial lesson.',
+ f_name:'Full name (parent or guardian)', f_email:'E-mail', f_contact:'Telegram or phone (optional)', f_exam:'Exam', f_format:'Format', f_plan:'Plan', f_subjects:'Subjects', f_msg:'Comment (grade, level, wishes)',
+ f_consent:'I consent to the processing of my data to answer this request (<a href="#datenschutz" data-legal="datenschutz">privacy policy</a>).', f_guardian:'I confirm that I am the student\'s parent or guardian (or at least 18 years old).',
+ f_submit:'Send request', pick_n:n=>`pick ${n}`, picked:'✓ selected',
+ err_name:'Please enter your full name.', err_email:'Please check the e-mail.', err_subj:n=>`Please pick exactly ${n} ${n===1?'subject':'subjects'} - that\'s what the plan includes.`, err_consent:'Please accept data processing and confirm you are a guardian.', err_rate:'Too many requests from this e-mail. Message us on Telegram.', err_net:'Could not send. Check your connection or message us on Telegram.',
+ ok_h:'Request received! 🎉', ok_p:'We\'ll reply by e-mail or Telegram within a day and arrange the trial lesson.',
+ sum:(f,p,s)=>`${f} · ${p} · ${s.length? s.map(k=>SUBJ[k]).join(', ') : '-'}`,
+ foot_about:'MSA preparation: German, maths, English. One-to-one and in mini-groups. Online across Germany.', foot_nav:'Navigation', foot_contact:'Contact', rights:'All rights reserved.',
+}};
+
+/* ---------- legal (DE) ---------- */
+const LEGAL = {
+impressum:`<h2>Impressum</h2>
+<p>Angaben gemäß § 5 DDG</p>
+<p><b>Kateryna Kichuk</b><br>Vibe Abschluss - Online-Nachhilfe (MSA-Vorbereitung)<br>Platz der Vereinten Nationen 10<br>10249 Berlin<br>Deutschland</p>
+<h3>Kontakt</h3><p>E-Mail: kateryna.berlin23@gmail.com<br>Telegram: @k1chyk</p>
+<h3>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h3><p>Kateryna Kichuk, Anschrift wie oben.</p>
+<h3>Haftung für Inhalte</h3><p>Die Inhalte dieser Seite wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte kann jedoch keine Gewähr übernommen werden.</p>
+<h3>Haftung für Links</h3><p>Diese Seite enthält Links zu externen Websites Dritter (z. B. Telegram, Instagram, TikTok, Facebook), auf deren Inhalte kein Einfluss besteht. Für diese fremden Inhalte ist stets der jeweilige Anbieter verantwortlich.</p>
+<h3>Streitschlichtung</h3><p>Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener">https://ec.europa.eu/consumers/odr/</a>. Zur Teilnahme an einem Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle sind wir nicht verpflichtet und nicht bereit.</p>`,
+datenschutz:`<h2>Datenschutzerklärung</h2>
+<h3>1. Verantwortliche</h3><p>Kateryna Kichuk, Platz der Vereinten Nationen 10, 10249 Berlin, E-Mail: kateryna.berlin23@gmail.com</p>
+<h3>2. Hosting (GitHub Pages)</h3><p>Diese Website wird bei GitHub Pages gehostet (GitHub Inc., 88 Colin P. Kelly Jr. St, San Francisco, CA 94107, USA). Beim Aufruf der Seite verarbeitet GitHub technisch notwendige Daten wie IP-Adresse, Browsertyp, Zeitpunkt des Zugriffs und aufgerufene Seite in Server-Logs. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einem sicheren und stabilen Betrieb). GitHub ist nach dem EU-US Data Privacy Framework zertifiziert. Weitere Informationen: <a href="https://docs.github.com/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener">GitHub Privacy Statement</a>.</p>
+<h3>3. Schriftarten (Google Fonts)</h3><p>Zur einheitlichen Darstellung werden Schriftarten von Google Fonts (Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland) geladen. Dabei wird deine IP-Adresse an Google übertragen. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO. Weitere Informationen: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Datenschutzerklärung</a>.</p>
+<h3>4. Anfrageformular</h3><p>Wenn du das Formular „Anfrage senden“ nutzt, verarbeiten wir die von dir angegebenen Daten (Name, E-Mail-Adresse, optional Telegram/Telefon, gewählter Tarif und Fächer, Kommentar) ausschließlich zur Beantwortung deiner Anfrage und zur Vereinbarung einer Probestunde. Rechtsgrundlage ist deine Einwilligung (Art. 6 Abs. 1 lit. a DSGVO) sowie die Durchführung vorvertraglicher Maßnahmen (Art. 6 Abs. 1 lit. b DSGVO). Die Daten werden in unserer Datenbank bei Supabase Inc. (Server in der EU, Region Irland) gespeichert und spätestens 6 Monate nach Abschluss der Anfrage gelöscht, sofern kein Vertrag zustande kommt. Du kannst deine Einwilligung jederzeit per E-Mail widerrufen.</p>
+<h3>5. Lernplattform „Vibe Quiz“</h3><p>Für die Lernplattform ist eine Registrierung mit Name, E-Mail-Adresse und Passwort erforderlich. Dort werden außerdem Lernergebnisse (Quiz-Antworten, Punktzahlen, Fortschritt) gespeichert, damit Schüler und Lehrkräfte den Lernstand sehen können. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO (Durchführung des Unterrichtsvertrags). Die Daten werden bei Supabase Inc. (EU, Irland) gespeichert und nach Ende der Teilnahme auf Wunsch gelöscht. Bei Nutzung der KI-gestützten Fragenerstellung durch Lehrkräfte werden keine Schülerdaten an Dritte übermittelt.</p>
+<h3>6. Lokale Speicherung / keine Cookies</h3><p>Die Website setzt keine Tracking-Cookies und keine Analysetools ein. Im lokalen Speicher deines Browsers (localStorage) werden lediglich deine Einstellungen (Sprache, helles/dunkles Design) und - auf der Lernplattform - deine Anmeldesitzung gespeichert.</p>
+<h3>7. Externe Links und soziale Netzwerke</h3><p>Links zu Telegram, Instagram, TikTok und Facebook sind reine Verlinkungen; beim Anklicken gelten die Datenschutzbestimmungen des jeweiligen Anbieters. Es werden keine Social-Media-Plugins eingebunden.</p>
+<h3>8. Deine Rechte</h3><p>Du hast das Recht auf Auskunft (Art. 15 DSGVO), Berichtigung (Art. 16), Löschung (Art. 17), Einschränkung der Verarbeitung (Art. 18), Datenübertragbarkeit (Art. 20) und Widerspruch (Art. 21). Außerdem hast du das Recht, dich bei einer Aufsichtsbehörde zu beschweren, z. B. bei der Berliner Beauftragten für Datenschutz und Informationsfreiheit. Wende dich dafür an: kateryna.berlin23@gmail.com.</p>
+<h3>9. Minderjährige</h3><p>Unsere Angebote richten sich an Jugendliche; Anfragen und Vertragsabschlüsse erfolgen jedoch durch die Erziehungsberechtigten. Mit dem Absenden des Formulars bestätigst du, erziehungsberechtigt oder volljährig zu sein.</p>
+<p style="margin-top:16px;font-size:13px;color:var(--muted)">Stand: November 2026</p>`
+};
+
+/* ---------- state ---------- */
+let LANG = (()=>{ let l = new URLSearchParams(location.search).get('lang'); if(!l){ try{ l = localStorage.getItem('vq_lang'); }catch(e){} }
+  if(!l){ const n=(navigator.language||'').slice(0,2); l = n==='uk'?'uk':n==='de'?'de':n==='en'?'en':n==='ru'?'ru':'uk'; } return ['uk','ru','de','en'].includes(l)?l:'uk'; })();
+const t = k => T[LANG][k] ?? T.uk[k] ?? k;
+let fmt = 'individual', plan = 2, subjects = [];
+const $ = s => document.querySelector(s);
+const esc = s => String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const euro = n => n.toFixed(2).replace('.',',');
+
+function mascot(bg,w){ const h=Math.round(w*1.1); return `<span class="masc-wrap" style="width:${w}px;height:${h}px"><svg viewBox="0 0 44 44" style="position:absolute;inset:0;width:100%;height:100%;transform:rotate(-15deg)"><path d="${BLOB}" fill="${bg}"/></svg><img src="${MASCOT_SRC}" alt="" style="position:absolute;left:21%;top:7%;width:58%" draggable="false"></span>`; }
+
+function applyTheme(th){ document.documentElement.setAttribute('data-theme', th); $('#themebtn').textContent = th==='dark'?'☀️':'🌙'; try{ localStorage.setItem('vq_theme', th); }catch(e){} }
+function renderAll(){
+  document.documentElement.lang = LANG; try{ localStorage.setItem('vq_lang', LANG); }catch(e){}
+  document.querySelectorAll('[data-t]').forEach(el => { el.innerHTML = t(el.dataset.t); });
+  document.querySelectorAll('[data-l]').forEach(el => { el.innerHTML = t(el.dataset.l).map(x=>`<li>${esc(x)}</li>`).join(''); });
+  $('#langsw').innerHTML = [['uk','UA'],['ru','RU'],['de','DE'],['en','EN']].map(([k,l])=>`<button data-lang="${k}" class="${LANG===k?'on':''}">${l}</button>`).join('');
+  $('#cabbtn').title = t('cab');
+  $('#steps').innerHTML = t('steps').map((s,i)=>`<div class="step"><div class="n">${i+1}</div><h3>${esc(s[0])}</h3><p class="muted" style="margin-top:6px;font-size:15px">${esc(s[1])}</p></div>`).join('');
+  $('#faqlist').innerHTML = t('faq').map(([q,a])=>`<details><summary>${esc(q)}</summary><div class="a">${esc(a)}</div></details>`).join('');
+  renderPlans(); renderForm();
+  document.querySelectorAll('a[href="QUIZ_URL"], a[href="QUIZ_URL#cabinet"]').forEach(a=>{ a.href = a.getAttribute('href').replace('QUIZ_URL', QUIZ_URL + '?lang=' + LANG); });
+}
+function renderPlans(){
+  document.querySelectorAll('[data-fmt]').forEach(b=>b.classList.toggle('on', b.dataset.fmt===fmt));
+  $('#plans').innerHTML = [0,1,2].map(i=>`<div class="plan ${i===2?'hot':''}">${i===2?`<span class="tag">${t('hot')}</span>`:''}
+    <div class="nm">${t('plan_names')[i]}</div><div class="price">${euro(PRICES[fmt][i])} <small>€</small></div><div class="per">${t('per')}</div>
+    <div class="dots"><i class="${i>=0?'m':''}"></i><i class="${i>=1?'e':''}"></i><i class="${i>=2?'d':''}"></i></div>
+    <b style="font-family:Rubik">${t('plan_sub')[i]}</b>
+    <ul style="margin-top:10px">${t('plan_feats')[fmt].map(x=>`<li>${esc(x)}</li>`).join('')}</ul>
+    <a class="btn ${i===2?'gold':''}" href="#apply" data-choose="${i+1}">${t('choose')} →</a></div>`).join('');
+}
+function renderForm(){
+  document.querySelectorAll('#f-format .chip').forEach(b=>b.classList.toggle('on', b.dataset.v===fmt));
+  $('#f-plan').innerHTML = [0,1,2].map(i=>`<label class="${plan===i+1?'on':''}"><input type="radio" name="plan" value="${i+1}" ${plan===i+1?'checked':''}><span><b>${t('plan_names')[i]}</b> · ${t('plan_sub')[i]}</span><span class="spacer"></span><b>${euro(PRICES[fmt][i])} €</b></label>`).join('');
+  if(subjects.length > plan) subjects = subjects.slice(0, plan);
+  document.querySelectorAll('#f-subj .chip').forEach(b=>{ const on = subjects.includes(b.dataset.v); b.classList.toggle('on', on); b.disabled = !on && subjects.length>=plan; });
+  $('#subjhint').textContent = subjects.length===plan ? t('picked') : t('pick_n')(plan - subjects.length);
+  $('#summary').textContent = t('sum')(fmt==='individual'?t('fmt_ind'):t('fmt_grp'), `${t('plan_names')[plan-1]} - ${euro(PRICES[fmt][plan-1])} €`, subjects);
+}
+function toast(m){ const el=$('#toast'); el.textContent=m; el.classList.add('show'); clearTimeout(toast._t); toast._t=setTimeout(()=>el.classList.remove('show'),3000); }
+function openLegal(k){ $('#modalbody').innerHTML = LEGAL[k]; $('#modal').classList.add('open'); document.body.style.overflow='hidden'; }
+function closeLegal(){ $('#modal').classList.remove('open'); document.body.style.overflow=''; if(/#(impressum|datenschutz)/.test(location.hash)) history.replaceState(null,'',location.pathname+location.search); }
+
+/* ---------- events ---------- */
+document.addEventListener('click', async e => {
+  const lb = e.target.closest('[data-lang]'); if(lb){ LANG = lb.dataset.lang; renderAll(); return; }
+  if(e.target.closest('#themebtn')){ applyTheme(document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark'); return; }
+  if(e.target.closest('#burger')){ $('#menu').classList.toggle('open'); return; }
+  if(e.target.closest('nav.menu a')){ $('#menu').classList.remove('open'); }
+  const f = e.target.closest('[data-fmt]'); if(f){ fmt = f.dataset.fmt; renderPlans(); renderForm(); return; }
+  const c = e.target.closest('[data-choose]'); if(c){ plan = +c.dataset.choose; renderForm(); return; }
+  const ff = e.target.closest('#f-format .chip'); if(ff){ fmt = ff.dataset.v; renderPlans(); renderForm(); return; }
+  const sc = e.target.closest('#f-subj .chip'); if(sc && !sc.disabled){ const v=sc.dataset.v; subjects = subjects.includes(v)?subjects.filter(x=>x!==v):[...subjects,v]; renderForm(); return; }
+  const lg = e.target.closest('[data-legal]'); if(lg){ e.preventDefault(); openLegal(lg.dataset.legal); return; }
+  if(e.target.closest('[data-a=closeModal]') || e.target===$('#modal')){ closeLegal(); return; }
+});
+document.addEventListener('change', e => { if(e.target.name==='plan'){ plan = +e.target.value; renderForm(); } });
+document.addEventListener('keydown', e => { if(e.key==='Escape') closeLegal(); });
+
+let sb = null;
+$('#form').addEventListener('submit', async e => {
+  e.preventDefault();
+  const name = $('#f-name').value.trim(), email = $('#f-email').value.trim();
+  const errbox = $('#formerr'); const fail = m => { errbox.innerHTML = `<div class="err">${esc(m)}</div>`; errbox.scrollIntoView({behavior:'smooth',block:'center'}); };
+  if(name.length<2) return fail(t('err_name'));
+  if(!/^\S+@\S+\.\S+$/.test(email)) return fail(t('err_email'));
+  if(subjects.length!==plan) return fail(t('err_subj')(plan));
+  if(!$('#f-consent').checked || !$('#f-guardian').checked) return fail(t('err_consent'));
+  errbox.innerHTML=''; const btn=$('#submitbtn'); btn.disabled = true;
+  try{
+    if(!sb) sb = window.supabase.createClient(SB_URL, SB_KEY);
+    const { error } = await sb.rpc('submit_application', {p:{name, email, contact:$('#f-contact').value.trim(), exam:'MSA', format:fmt, plan, subjects, message:$('#f-msg').value.trim(), consent:true, guardian:true, lang:LANG}});
+    if(error){ console.warn(error); return fail(/rate/.test(error.message)?t('err_rate'):t('err_net')); }
+    $('#form').outerHTML = `<div class="ok" id="form">${mascot('#ddb049',110)}<h2 style="margin-top:8px">${t('ok_h')}</h2><p style="margin-top:8px">${t('ok_p')}</p><a class="btn" style="margin-top:16px" href="https://t.me/k1chyk" target="_blank" rel="noopener">✈️ Telegram</a></div>`;
+  }catch(err){ console.warn(err); fail(t('err_net')); }
+  finally{ const b=$('#submitbtn'); if(b) b.disabled=false; }
+});
+
+/* ---------- boot ---------- */
+(function(){
+  document.getElementById('blobpath').setAttribute('d', BLOB); document.getElementById('blobdef').setAttribute('d', BLOB);
+  let th = null; try{ th = localStorage.getItem('vq_theme'); }catch(e){}
+  applyTheme(th || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'));
+  $('#heroart').innerHTML = mascot('#ddb049', 260);
+  $('#year').textContent = new Date().getFullYear();
+  renderAll();
+  if(location.hash==='#impressum') openLegal('impressum'); if(location.hash==='#datenschutz') openLegal('datenschutz');
+  // cabinet button: if a quiz session exists in this browser, go straight to the cabinet
+  try{ const k = Object.keys(localStorage).find(x=>/^sb-.*-auth-token$/.test(x)); if(k) $('#cabbtn').title = t('cab'); }catch(e){}
+})();
+</script>
+</body>
+</html>
